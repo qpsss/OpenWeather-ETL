@@ -1,0 +1,122 @@
+[2023-09-24T15:21:12.065+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: openweather_api_dag.create_table scheduled__2023-09-23T00:00:00+00:00 [queued]>
+[2023-09-24T15:21:12.081+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: openweather_api_dag.create_table scheduled__2023-09-23T00:00:00+00:00 [queued]>
+[2023-09-24T15:21:12.082+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-09-24T15:21:12.111+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_table> on 2023-09-23 00:00:00+00:00
+[2023-09-24T15:21:12.125+0000] {standard_task_runner.py:57} INFO - Started process 6588 to run task
+[2023-09-24T15:21:12.160+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'openweather_api_dag', 'create_table', 'scheduled__2023-09-23T00:00:00+00:00', '--job-id', '144', '--raw', '--subdir', 'DAGS_FOLDER/openweather-api.py', '--cfg-path', '/tmp/tmpqumvd7dt']
+[2023-09-24T15:21:12.219+0000] {standard_task_runner.py:85} INFO - Job 144: Subtask create_table
+[2023-09-24T15:21:12.613+0000] {task_command.py:415} INFO - Running <TaskInstance: openweather_api_dag.create_table scheduled__2023-09-23T00:00:00+00:00 [running]> on host 1bba31d3c72d
+[2023-09-24T15:21:15.520+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='sukmaksinp@gmail.com' AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='openweather_api_dag' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-23T00:00:00+00:00'
+[2023-09-24T15:21:15.522+0000] {sql.py:274} INFO - Executing:  
+            CREATE TABLE IF NOT EXISTS weather_data (
+            city TEXT,
+            description TEXT,
+            temperature_farenheit NUMERIC,
+            feels_like_farenheit NUMERIC,
+            minimun_temp_farenheit NUMERIC,
+            maximum_temp_farenheit NUMERIC,
+            pressure NUMERIC,
+            humidity NUMERIC,
+            wind_speed NUMERIC,
+            time_of_record TIMESTAMP,
+            sunrise_local_time TIMESTAMP,
+            sunset_local_time TIMESTAMP                    
+        );
+        
+[2023-09-24T15:21:15.546+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 275, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 186, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.8/functools.py", line 967, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 148, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 477, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_conn` isn't defined
+[2023-09-24T15:21:15.552+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=openweather_api_dag, task_id=create_table, execution_date=20230923T000000, start_date=20230924T152112, end_date=20230924T152115
+[2023-09-24T15:21:15.574+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2023-09-24T15:21:15.575+0000] {configuration.py:1064} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-09-24T15:21:15.576+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2023-09-24T15:21:15.587+0000] {configuration.py:1064} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-09-24T15:21:15.588+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2023-09-24T15:21:15.590+0000] {taskinstance.py:2013} ERROR - Failed to send email to: ['sukmaksinp@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1518, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1679, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1750, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 275, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 186, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.8/functools.py", line 967, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 148, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 477, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_conn` isn't defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2426, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 272, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2011, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2428, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 272, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2023-09-24T15:21:15.612+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 144 for task create_table (The conn_id `postgres_conn` isn't defined; 6588)
+[2023-09-24T15:21:15.647+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-24T15:21:15.673+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

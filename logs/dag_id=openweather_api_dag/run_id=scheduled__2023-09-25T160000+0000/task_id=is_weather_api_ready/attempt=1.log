@@ -1,0 +1,15 @@
+[2023-09-25T17:00:02.948+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: openweather_api_dag.is_weather_api_ready scheduled__2023-09-25T16:00:00+00:00 [queued]>
+[2023-09-25T17:00:02.962+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: openweather_api_dag.is_weather_api_ready scheduled__2023-09-25T16:00:00+00:00 [queued]>
+[2023-09-25T17:00:02.963+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-09-25T17:00:02.982+0000] {taskinstance.py:1382} INFO - Executing <Task(HttpSensor): is_weather_api_ready> on 2023-09-25 16:00:00+00:00
+[2023-09-25T17:00:02.993+0000] {standard_task_runner.py:57} INFO - Started process 2751 to run task
+[2023-09-25T17:00:02.998+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'openweather_api_dag', 'is_weather_api_ready', 'scheduled__2023-09-25T16:00:00+00:00', '--job-id', '280', '--raw', '--subdir', 'DAGS_FOLDER/openweather-api.py', '--cfg-path', '/tmp/tmpeoybyy2f']
+[2023-09-25T17:00:03.001+0000] {standard_task_runner.py:85} INFO - Job 280: Subtask is_weather_api_ready
+[2023-09-25T17:00:03.070+0000] {task_command.py:415} INFO - Running <TaskInstance: openweather_api_dag.is_weather_api_ready scheduled__2023-09-25T16:00:00+00:00 [running]> on host 6be2020c7bd4
+[2023-09-25T17:00:03.417+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='sukmaksinp@gmail.com' AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='openweather_api_dag' AIRFLOW_CTX_TASK_ID='is_weather_api_ready' AIRFLOW_CTX_EXECUTION_DATE='2023-09-25T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-25T16:00:00+00:00'
+[2023-09-25T17:00:03.419+0000] {http.py:121} INFO - Poking: /data/2.5/weather?q=Bangkok&appid=e5e31da0d65a2184f05c9b1ba8feed8d
+[2023-09-25T17:00:03.431+0000] {base.py:73} INFO - Using connection ID 'openwearther_api' for task execution.
+[2023-09-25T17:00:03.797+0000] {base.py:281} INFO - Success criteria met. Exiting.
+[2023-09-25T17:00:03.809+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=openweather_api_dag, task_id=is_weather_api_ready, execution_date=20230925T160000, start_date=20230925T170002, end_date=20230925T170003
+[2023-09-25T17:00:03.857+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-25T17:00:04.018+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

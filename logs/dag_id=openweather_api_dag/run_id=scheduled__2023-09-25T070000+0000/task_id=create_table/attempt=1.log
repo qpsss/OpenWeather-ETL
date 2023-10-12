@@ -1,0 +1,46 @@
+[2023-09-25T08:00:03.629+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: openweather_api_dag.create_table scheduled__2023-09-25T07:00:00+00:00 [queued]>
+[2023-09-25T08:00:03.649+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: openweather_api_dag.create_table scheduled__2023-09-25T07:00:00+00:00 [queued]>
+[2023-09-25T08:00:03.650+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-09-25T08:00:03.676+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_table> on 2023-09-25 07:00:00+00:00
+[2023-09-25T08:00:03.702+0000] {standard_task_runner.py:57} INFO - Started process 5825 to run task
+[2023-09-25T08:00:03.710+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'openweather_api_dag', 'create_table', 'scheduled__2023-09-25T07:00:00+00:00', '--job-id', '228', '--raw', '--subdir', 'DAGS_FOLDER/openweather-api.py', '--cfg-path', '/tmp/tmp6lu_wpo1']
+[2023-09-25T08:00:03.719+0000] {standard_task_runner.py:85} INFO - Job 228: Subtask create_table
+[2023-09-25T08:00:03.802+0000] {task_command.py:415} INFO - Running <TaskInstance: openweather_api_dag.create_table scheduled__2023-09-25T07:00:00+00:00 [running]> on host 1bba31d3c72d
+[2023-09-25T08:00:04.206+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='sukmaksinp@gmail.com' AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='openweather_api_dag' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-25T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-25T07:00:00+00:00'
+[2023-09-25T08:00:04.208+0000] {sql.py:274} INFO - Executing:  
+            CREATE TABLE IF NOT EXISTS weather_data (
+            city TEXT,
+            description TEXT,
+            temperature_celsius NUMERIC,
+            feels_like_celsius NUMERIC,
+            minimun_temp_celsius NUMERIC,
+            maximum_temp_celsius NUMERIC,
+            pressure NUMERIC,
+            humidity NUMERIC,
+            wind_speed NUMERIC,
+            time_of_record TIMESTAMP,
+            sunrise_local_time TIMESTAMP,
+            sunset_local_time TIMESTAMP                    
+        );
+        
+[2023-09-25T08:00:04.220+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-25T08:00:04.233+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-25T08:00:04.240+0000] {sql.py:418} INFO - Running statement:  
+            CREATE TABLE IF NOT EXISTS weather_data (
+            city TEXT,
+            description TEXT,
+            temperature_celsius NUMERIC,
+            feels_like_celsius NUMERIC,
+            minimun_temp_celsius NUMERIC,
+            maximum_temp_celsius NUMERIC,
+            pressure NUMERIC,
+            humidity NUMERIC,
+            wind_speed NUMERIC,
+            time_of_record TIMESTAMP,
+            sunrise_local_time TIMESTAMP,
+            sunset_local_time TIMESTAMP                    
+        );
+        , parameters: None
+[2023-09-25T08:00:04.253+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=openweather_api_dag, task_id=create_table, execution_date=20230925T070000, start_date=20230925T080003, end_date=20230925T080004
+[2023-09-25T08:00:04.291+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-25T08:00:04.317+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

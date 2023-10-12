@@ -1,0 +1,13 @@
+[2023-09-30T06:43:36.667+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: openweather_api_dag.transform_weather_data scheduled__2023-09-25T17:00:00+00:00 [queued]>
+[2023-09-30T06:43:36.686+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: openweather_api_dag.transform_weather_data scheduled__2023-09-25T17:00:00+00:00 [queued]>
+[2023-09-30T06:43:36.687+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-09-30T06:43:36.711+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): transform_weather_data> on 2023-09-25 17:00:00+00:00
+[2023-09-30T06:43:36.720+0000] {standard_task_runner.py:57} INFO - Started process 205 to run task
+[2023-09-30T06:43:36.723+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'openweather_api_dag', 'transform_weather_data', 'scheduled__2023-09-25T17:00:00+00:00', '--job-id', '294', '--raw', '--subdir', 'DAGS_FOLDER/openweather-api.py', '--cfg-path', '/tmp/tmp42jkmcwb']
+[2023-09-30T06:43:36.726+0000] {standard_task_runner.py:85} INFO - Job 294: Subtask transform_weather_data
+[2023-09-30T06:43:36.803+0000] {task_command.py:415} INFO - Running <TaskInstance: openweather_api_dag.transform_weather_data scheduled__2023-09-25T17:00:00+00:00 [running]> on host 6be2020c7bd4
+[2023-09-30T06:43:37.086+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='sukmaksinp@gmail.com' AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='openweather_api_dag' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2023-09-25T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-25T17:00:00+00:00'
+[2023-09-30T06:43:37.106+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-09-30T06:43:37.118+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=openweather_api_dag, task_id=transform_weather_data, execution_date=20230925T170000, start_date=20230930T064336, end_date=20230930T064337
+[2023-09-30T06:43:37.178+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-30T06:43:37.208+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

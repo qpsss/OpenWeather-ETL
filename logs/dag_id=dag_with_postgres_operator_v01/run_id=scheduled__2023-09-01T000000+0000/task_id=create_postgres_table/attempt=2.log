@@ -1,0 +1,216 @@
+[2023-09-02T08:03:23.428+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:03:23.429+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:03:23.465+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:03:23.466+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:03:23.508+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:03:23.521+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:03:23.522+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 6
+[2023-09-02T08:03:23.541+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-09-01 00:00:00+00:00
+[2023-09-02T08:03:23.547+0000] {standard_task_runner.py:57} INFO - Started process 306 to run task
+[2023-09-02T08:03:23.551+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v01', 'create_postgres_table', 'scheduled__2023-09-01T00:00:00+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmpihzazvjr']
+[2023-09-02T08:03:23.554+0000] {standard_task_runner.py:85} INFO - Job 31: Subtask create_postgres_table
+[2023-09-02T08:03:23.676+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:03:23.677+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:03:23.679+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-02T08:03:23.767+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v01' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-01T00:00:00+00:00'
+[2023-09-02T08:03:23.771+0000] {sql.py:274} INFO - Executing: 
+            create table if not exist dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        
+[2023-09-02T08:03:23.781+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:03:23.792+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:03:23.811+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 385, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 154, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "localhost.docker.local" to address: Name or service not known
+
+[2023-09-02T08:03:23.821+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_postgres_operator_v01, task_id=create_postgres_table, execution_date=20230901T000000, start_date=20230902T080323, end_date=20230902T080323
+[2023-09-02T08:03:23.837+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 31 for task create_postgres_table (could not translate host name "localhost.docker.local" to address: Name or service not known
+; 306)
+[2023-09-02T08:03:23.845+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T08:03:23.863+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-09-02T08:16:56.213+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:16:56.214+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:16:56.247+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:16:56.247+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:16:56.287+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:16:56.299+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:16:56.300+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 6
+[2023-09-02T08:16:56.317+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-09-01 00:00:00+00:00
+[2023-09-02T08:16:56.322+0000] {standard_task_runner.py:57} INFO - Started process 642 to run task
+[2023-09-02T08:16:56.326+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v01', 'create_postgres_table', 'scheduled__2023-09-01T00:00:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmpk9bcchs3']
+[2023-09-02T08:16:56.328+0000] {standard_task_runner.py:85} INFO - Job 38: Subtask create_postgres_table
+[2023-09-02T08:16:56.381+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:16:56.382+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:16:56.385+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-02T08:16:56.465+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v01' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-01T00:00:00+00:00'
+[2023-09-02T08:16:56.467+0000] {sql.py:274} INFO - Executing: 
+            create table if not exist dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        
+[2023-09-02T08:16:56.480+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:16:56.488+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:16:56.572+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 385, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 154, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "host.docker.local" to address: Name or service not known
+
+[2023-09-02T08:16:56.583+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_postgres_operator_v01, task_id=create_postgres_table, execution_date=20230901T000000, start_date=20230902T081656, end_date=20230902T081656
+[2023-09-02T08:16:56.600+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 38 for task create_postgres_table (could not translate host name "host.docker.local" to address: Name or service not known
+; 642)
+[2023-09-02T08:16:56.619+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T08:16:56.637+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-09-02T08:22:52.817+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:22:52.819+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:22:52.860+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:22:52.861+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:22:52.922+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:22:52.933+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:22:52.934+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 7
+[2023-09-02T08:22:52.951+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-09-01 00:00:00+00:00
+[2023-09-02T08:22:52.957+0000] {standard_task_runner.py:57} INFO - Started process 797 to run task
+[2023-09-02T08:22:52.960+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v01', 'create_postgres_table', 'scheduled__2023-09-01T00:00:00+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmpe9p5vqyg']
+[2023-09-02T08:22:52.962+0000] {standard_task_runner.py:85} INFO - Job 43: Subtask create_postgres_table
+[2023-09-02T08:22:53.017+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:22:53.018+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:22:53.020+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-02T08:22:53.111+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v01' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-01T00:00:00+00:00'
+[2023-09-02T08:22:53.113+0000] {sql.py:274} INFO - Executing: 
+            create table if not exist dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        
+[2023-09-02T08:22:53.127+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:22:53.139+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:22:53.144+0000] {sql.py:418} INFO - Running statement: 
+            create table if not exist dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        , parameters: None
+[2023-09-02T08:22:53.146+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 423, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "exist"
+LINE 2:             create table if not exist dag_runs (
+                                        ^
+
+[2023-09-02T08:22:53.157+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_postgres_operator_v01, task_id=create_postgres_table, execution_date=20230901T000000, start_date=20230902T082252, end_date=20230902T082253
+[2023-09-02T08:22:53.173+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 43 for task create_postgres_table (syntax error at or near "exist"
+LINE 2:             create table if not exist dag_runs (
+                                        ^
+; 797)
+[2023-09-02T08:22:53.214+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T08:22:53.235+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-09-02T08:38:03.756+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:38:03.770+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:38:03.804+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:38:03.805+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:38:03.843+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:38:03.855+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:38:03.856+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 6
+[2023-09-02T08:38:03.874+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-09-01 00:00:00+00:00
+[2023-09-02T08:38:03.882+0000] {standard_task_runner.py:57} INFO - Started process 243 to run task
+[2023-09-02T08:38:03.887+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v01', 'create_postgres_table', 'scheduled__2023-09-01T00:00:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmp3fqucw14']
+[2023-09-02T08:38:03.889+0000] {standard_task_runner.py:85} INFO - Job 52: Subtask create_postgres_table
+[2023-09-02T08:38:03.947+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:38:03.948+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:38:03.951+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-02T08:38:04.062+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v01' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-01T00:00:00+00:00'
+[2023-09-02T08:38:04.064+0000] {sql.py:274} INFO - Executing: 
+            create table if not exists dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        
+[2023-09-02T08:38:04.076+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:38:04.087+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:38:04.092+0000] {sql.py:418} INFO - Running statement: 
+            create table if not exists dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, datg_ig)
+            )
+        , parameters: None
+[2023-09-02T08:38:04.094+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 423, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedColumn: column "datg_ig" named in key does not exist
+LINE 5:                 primary key (dt, datg_ig)
+                        ^
+
+[2023-09-02T08:38:04.105+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_postgres_operator_v01, task_id=create_postgres_table, execution_date=20230901T000000, start_date=20230902T083803, end_date=20230902T083804
+[2023-09-02T08:38:04.123+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 52 for task create_postgres_table (column "datg_ig" named in key does not exist
+LINE 5:                 primary key (dt, datg_ig)
+                        ^
+; 243)
+[2023-09-02T08:38:04.139+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T08:38:04.158+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-09-02T08:40:02.444+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:40:02.445+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:40:02.482+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:40:02.483+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:40:02.518+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:40:02.531+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [queued]>
+[2023-09-02T08:40:02.532+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 7
+[2023-09-02T08:40:02.551+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-09-01 00:00:00+00:00
+[2023-09-02T08:40:02.558+0000] {standard_task_runner.py:57} INFO - Started process 312 to run task
+[2023-09-02T08:40:02.560+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v01', 'create_postgres_table', 'scheduled__2023-09-01T00:00:00+00:00', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmpm_oxkxr1']
+[2023-09-02T08:40:02.562+0000] {standard_task_runner.py:85} INFO - Job 60: Subtask create_postgres_table
+[2023-09-02T08:40:02.615+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509
+[2023-09-02T08:40:02.616+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v01/run_id=scheduled__2023-09-01T00:00:00+00:00/task_id=create_postgres_table'
+[2023-09-02T08:40:02.620+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v01.create_postgres_table scheduled__2023-09-01T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-02T08:40:02.706+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v01' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-01T00:00:00+00:00'
+[2023-09-02T08:40:02.708+0000] {sql.py:274} INFO - Executing: 
+            create table if not exists dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, dag_id)
+            )
+        
+[2023-09-02T08:40:02.719+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:40:02.729+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-02T08:40:02.735+0000] {sql.py:418} INFO - Running statement: 
+            create table if not exists dag_runs (
+                dt date,
+                dag_id character varying,
+                primary key (dt, dag_id)
+            )
+        , parameters: None
+[2023-09-02T08:40:02.746+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v01, task_id=create_postgres_table, execution_date=20230901T000000, start_date=20230902T084002, end_date=20230902T084002
+[2023-09-02T08:40:02.775+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-02T08:40:02.792+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

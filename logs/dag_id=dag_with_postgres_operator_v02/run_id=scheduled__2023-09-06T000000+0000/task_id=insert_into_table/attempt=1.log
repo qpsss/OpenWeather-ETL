@@ -1,0 +1,27 @@
+[2023-09-09T13:26:05.722+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509
+[2023-09-09T13:26:05.723+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table'
+[2023-09-09T13:26:05.764+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509
+[2023-09-09T13:26:05.765+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table'
+[2023-09-09T13:26:05.810+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v02.insert_into_table scheduled__2023-09-06T00:00:00+00:00 [queued]>
+[2023-09-09T13:26:05.824+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v02.insert_into_table scheduled__2023-09-06T00:00:00+00:00 [queued]>
+[2023-09-09T13:26:05.825+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 6
+[2023-09-09T13:26:05.844+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): insert_into_table> on 2023-09-06 00:00:00+00:00
+[2023-09-09T13:26:05.851+0000] {standard_task_runner.py:57} INFO - Started process 189 to run task
+[2023-09-09T13:26:05.854+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v02', 'insert_into_table', 'scheduled__2023-09-06T00:00:00+00:00', '--job-id', '95', '--raw', '--subdir', 'DAGS_FOLDER/dag-postgres-operator.py', '--cfg-path', '/tmp/tmp_qf8qwgn']
+[2023-09-09T13:26:05.856+0000] {standard_task_runner.py:85} INFO - Job 95: Subtask insert_into_table
+[2023-09-09T13:26:05.933+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509
+[2023-09-09T13:26:05.934+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=dag_with_postgres_operator_v02/run_id=scheduled__2023-09-06T00:00:00+00:00/task_id=insert_into_table'
+[2023-09-09T13:26:05.938+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v02.insert_into_table scheduled__2023-09-06T00:00:00+00:00 [running]> on host 6c82fec646db
+[2023-09-09T13:26:06.116+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v02' AIRFLOW_CTX_TASK_ID='insert_into_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-06T00:00:00+00:00'
+[2023-09-09T13:26:06.118+0000] {sql.py:274} INFO - Executing: 
+            insert into dag_runs (dt, dag_id) values ('2023-09-06', 'dag_with_postgres_operator_v02')
+        
+[2023-09-09T13:26:06.131+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-09T13:26:06.145+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-09-09T13:26:06.155+0000] {sql.py:418} INFO - Running statement: 
+            insert into dag_runs (dt, dag_id) values ('2023-09-06', 'dag_with_postgres_operator_v02')
+        , parameters: None
+[2023-09-09T13:26:06.167+0000] {sql.py:427} INFO - Rows affected: 1
+[2023-09-09T13:26:06.188+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v02, task_id=insert_into_table, execution_date=20230906T000000, start_date=20230909T132605, end_date=20230909T132606
+[2023-09-09T13:26:06.229+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-09T13:26:06.249+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

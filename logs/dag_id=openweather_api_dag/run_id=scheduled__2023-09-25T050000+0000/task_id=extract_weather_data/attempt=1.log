@@ -1,0 +1,15 @@
+[2023-09-25T06:00:05.830+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: openweather_api_dag.extract_weather_data scheduled__2023-09-25T05:00:00+00:00 [queued]>
+[2023-09-25T06:00:05.849+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: openweather_api_dag.extract_weather_data scheduled__2023-09-25T05:00:00+00:00 [queued]>
+[2023-09-25T06:00:05.850+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-09-25T06:00:05.878+0000] {taskinstance.py:1382} INFO - Executing <Task(SimpleHttpOperator): extract_weather_data> on 2023-09-25 05:00:00+00:00
+[2023-09-25T06:00:05.886+0000] {standard_task_runner.py:57} INFO - Started process 3560 to run task
+[2023-09-25T06:00:05.889+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'openweather_api_dag', 'extract_weather_data', 'scheduled__2023-09-25T05:00:00+00:00', '--job-id', '219', '--raw', '--subdir', 'DAGS_FOLDER/openweather-api.py', '--cfg-path', '/tmp/tmp8lchqz5x']
+[2023-09-25T06:00:05.892+0000] {standard_task_runner.py:85} INFO - Job 219: Subtask extract_weather_data
+[2023-09-25T06:00:05.960+0000] {task_command.py:415} INFO - Running <TaskInstance: openweather_api_dag.extract_weather_data scheduled__2023-09-25T05:00:00+00:00 [running]> on host 1bba31d3c72d
+[2023-09-25T06:00:06.235+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='sukmaksinp@gmail.com' AIRFLOW_CTX_DAG_OWNER='qpsss' AIRFLOW_CTX_DAG_ID='openweather_api_dag' AIRFLOW_CTX_TASK_ID='extract_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2023-09-25T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-09-25T05:00:00+00:00'
+[2023-09-25T06:00:06.238+0000] {http.py:143} INFO - Calling HTTP method
+[2023-09-25T06:00:06.252+0000] {base.py:73} INFO - Using connection ID 'openwearther_api' for task execution.
+[2023-09-25T06:00:06.445+0000] {http.py:153} INFO - {"coord":{"lon":100.5167,"lat":13.75},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":307.09,"feels_like":311.41,"temp_min":307.09,"temp_max":307.54,"pressure":1005,"humidity":50,"sea_level":1005,"grnd_level":1003},"visibility":10000,"wind":{"speed":0.95,"deg":51,"gust":1.01},"clouds":{"all":61},"dt":1695621071,"sys":{"type":1,"id":9235,"country":"TH","sunrise":1695596823,"sunset":1695640360},"timezone":25200,"id":1609350,"name":"Bangkok","cod":200}
+[2023-09-25T06:00:06.493+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=openweather_api_dag, task_id=extract_weather_data, execution_date=20230925T050000, start_date=20230925T060005, end_date=20230925T060006
+[2023-09-25T06:00:06.546+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-25T06:00:06.590+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check
